@@ -77,6 +77,7 @@ export default function Home() {
         entries.forEach((entry) => {
           if(entry.isIntersecting) {
             if (entry.target.classList.contains(styles.animate)) return;
+            entry.target.classList.remove('waiting')
             let animateDelay = entry.target.dataset.animationDelay ?? 0;
 
             setTimeout(() => {
@@ -143,7 +144,14 @@ export default function Home() {
         entries.forEach((entry) => {
           if(entry.isIntersecting) {
 			const svg = entry.target;
-			if (svg.classList.contains('complete')) return;
+            if (svg.classList.contains(styles.animate)) return;
+
+			let animateDelay = svg.dataset.animationDelay ?? 0;
+
+            setTimeout(() => {
+				svg.classList.add(styles.animate);
+				svg.classList.add('animate');
+            }, animateDelay)
 
 			let customDelay = svg.getAttribute('delay') ?? 0;
 			let options = {
@@ -155,7 +163,9 @@ export default function Home() {
 				delay: customDelay,
 				easing: 'easeOutQuad',
 				complete: () => {
-				  svg.classList.add('complete')
+				  svg.classList.remove('animate');
+                  svg.classList.add('done');
+                  svg.classList.add(styles.done);
 				}
 			}
 
@@ -170,6 +180,49 @@ export default function Home() {
 	})
     document.querySelectorAll('svg[data-animate="true"]').forEach(svg => {
 		SVGObserver.observe(svg)
+    })
+
+	const gridLineObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if(entry.isIntersecting) {
+			const gridLine = entry.target;
+            if (gridLine.classList.contains(styles.animate)) return;
+
+			let animateDelay = gridLine.dataset.animationDelay ?? 0;
+
+            setTimeout(() => {
+				gridLine.classList.add(styles.animate);
+				gridLine.classList.add('animate');
+            }, animateDelay)
+
+			let customDelay = gridLine.getAttribute('delay') ?? 0;
+			let options = {
+				targets: gridLine,
+				opacity: [0, 1],
+				direction: 'normal',
+				duration: 1300,
+				loop: 1,
+				delay: customDelay,
+				easing: 'easeInOutQuad',
+				complete: () => {
+				  gridLine.classList.remove('animate');
+                  gridLine.classList.add('done');
+                  gridLine.classList.add(styles.done);
+				}
+			}
+
+			if (entry.target.dataset.animationType == 'vertical') {
+				options.height = [0, '100%'];
+			} else {
+				options.width = [0, '100%'];
+			}
+			anime(options);
+		  }
+		})
+	})
+
+	document.querySelectorAll(`.gridline[data-animate="true"]`).forEach(line => {
+		gridLineObserver.observe(line)
     })
 
     return () => {
@@ -200,9 +253,13 @@ export default function Home() {
       </Head>
 
       <section className={`page-section ${styles.one}`}>
-		<div className={`gridline ${styles['gridline']} ${styles['gridline-1']}`}></div>
+		<div 
+		className={`gridline ${styles['gridline']} ${styles['gridline-1']}`}
+		data-animate="true"
+		data-animation-type="vertical"
+		></div>
 
-        <div className={`${styles['name-hero']} ${styles.waiting}`}>
+        <div className={`${styles['name-hero']}`}>
           <h1 data-animation-type="slideup" data-delay={150} stagger={"true"} className={`${styles['name-text']} ${styles.text} splt`}>ISAAC</h1>
           <h1 data-animation-type="slideup" data-delay={150} stagger={"true"} className={`${styles['name-text']} ${styles.text} splt`}>TSAI</h1>
           <p 

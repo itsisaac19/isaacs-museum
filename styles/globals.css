@@ -11,6 +11,13 @@
   transition-delay: 2s !important;
 }
 
+.splt:not(.animate):not(.done) {
+  opacity: 0;
+}
+svg[data-animate="true"]:not(.animate):not(.done) {
+  opacity: 0;
+}
+
 .animate.splt .char {
   will-change: transform;
 }
@@ -200,13 +207,13 @@ h1, h2, h3, p {
   height: 0px; /* Height of non-active (0) tabs */
 }
 .hide .sub1.active {
-  height: 25px; /* Height of ONE tab */
+  height: 24px; /* Height of ONE tab */
 }
 .hide .sub1.active:has(.sub2) {
-  height: 50px;/* Height of TWO tabs */
+  height: 48px;/* Height of TWO tabs */
 }
 .hide .sub1.active:has(.sub3) {
-  height: 75px;/* Height of THREE (max) tabs */
+  height: 72px;/* Height of THREE (max) tabs */
 }
 .hide .sub > .item-wrap:not(.active),
 .hide .table-wrap > .item-wrap:not(.active) .item-wrap:not(.active) {
@@ -216,7 +223,7 @@ h1, h2, h3, p {
   width: 78%;
 }
 .item-value {
-  padding: 3px 0 1px;
+  padding: 2px 0 1px;
 
   cursor: pointer;
   width: calc(100%);
@@ -224,12 +231,12 @@ h1, h2, h3, p {
   font-family: neue-haas-grotesk-text, sans-serif;
   font-weight: 400;
   font-size: 16px;
-  color: #AFAFAF;
+  color: #585858;
 
   opacity: 1;
 
   background: white;
-  border-bottom: 1px solid #AFAFAF;
+  border-bottom: 1px solid #dbdbdb;
   transition: 
   opacity 0.3s ease, 
   background 0.3s ease, 
@@ -245,12 +252,14 @@ h1, h2, h3, p {
   color: black;
   border-bottom: 1px solid black;
 }
+
 .active > .item-value {
-  color: #2a260c;
-  border-bottom: 1px solid #161405;
+  color: #000000;
+  border-bottom: 1px solid #000000;
+  background: #edece3;
 }
 .table-wrap > .item-wrap.active .item-wrap:not(.active) .item-value {
-  color: #c0c0c0;
+  color: #585858;
 }
 
 @font-face {
