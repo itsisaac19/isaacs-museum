@@ -34,31 +34,26 @@ section.one {
 .name-text {
   display: block;
 
-  font-size: 128px;
+  font-size: 7vw;
   font-family: neue-haas-grotesk-display, sans-serif;
   font-weight: 700;
   color: #2E2513;
   width: max-content;
-  line-height: 94.6%;
+  line-height: 6.7vw;
   transition: none;
 
   overflow: hidden;
-  height: 120px;
+  height: min-content;
 }
 .name-caption {
   margin: 40px 0 0 60px;
   font-family: neue-haas-grotesk-text, sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  font-size: max(10px, 0.9vw);
 
   color: #4E453A;
 
   text-rendering: optimizeLegibility;
-}
-.name-text.animate, [delay].name-text.animate {
-  opacity: 1;
-  translate: 0%;
-  transition: 1.5s cubic-bezier(.22,.88,.77,1.01);
 }
 
 .scroll-hint-wrapper {
@@ -92,7 +87,7 @@ section.one {
 .image-block.image-01 {
   position: absolute;
   right: 0;
-  top: 260px;
+  top: 29vh;
   width: min-content;
   display: grid;
 }
@@ -101,7 +96,7 @@ section.one {
 .image-01 .image-wrap {
   position: relative;
   aspect-ratio: 1127 / 548;
-  width: 55vw;
+  width: 50vw;
 
   overflow: hidden;
 }
@@ -134,7 +129,7 @@ section.one {
 
 
 .scary-jump {
-  margin: 650px 0;
+  margin: 67vh 0;
   display: grid;
   position: relative;
 }
