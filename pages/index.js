@@ -4,6 +4,7 @@ import styles from '../styles/Home.module.css';
 import Image from 'next/image';
 import cameraHero from '../public/camera-hero.png';
 import React from 'react';
+
 class TextSplitter {
   constructor(element) {
     this.element = element;
@@ -181,7 +182,21 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>ISAAC TSAI</title>
+        <title>Isaac Tsai</title>
+        <meta name="description" content="Explore my museum, showcasing the evolution of my skills in web development through a collection of projects, skills, and achievements over time."></meta>
+
+        <meta property="og:type" content="website"/>
+        <meta property="og:url" content="https://isaacs-museum.vercel.app/"/>
+        <meta property="og:title" content="Isaac Tsai"/>
+        <meta property="og:description" content="Explore my museum, showcasing the evolution of my skills in web development through a collection of projects, skills, and achievements over time."/>
+        <meta property="og:image" content="https://thumbsnap.com/s/PFWcjSL9.png?0326"/>
+
+
+        <meta property="twitter:card" content="summary_large_image"/>
+        <meta property="twitter:url" content="https://isaacs-museum.vercel.app/"/>
+        <meta property="twitter:title" content="Isaac Tsai"/>
+        <meta property="twitter:description" content="Explore my museum, showcasing the evolution of my skills in web development through a collection of projects, skills, and achievements over time."/>
+        <meta property="twitter:image" content="https://thumbsnap.com/s/PFWcjSL9.png?0326"/>
       </Head>
 
       <section className={`page-section ${styles.one}`}>
