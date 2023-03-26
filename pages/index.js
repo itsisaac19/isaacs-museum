@@ -308,7 +308,7 @@ export default function Home() {
 				></Image>
 			</LightGallery>
           </div>
-          <figcaption onClick={captionClickHandler} data-animation-type="slideup" data-delay={800} className={`${styles.text} splt`}>
+          <figcaption gallery="ITALY 2023" onClick={captionClickHandler} data-animation-type="slideup" data-delay={800} className={`${styles.text} splt`}>
           01  —  PANTHEON
           </figcaption>
         </Parallax>
